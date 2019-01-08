@@ -2,13 +2,23 @@ $(function () {
     skinChanger();
     activateNotificationAndTasksScroll();
 
-    setSkinListHeightAndScroll(true);
-    setSettingListHeightAndScroll(true);
+    setSkinListHeightAndScroll();
+    setSettingListHeightAndScroll();
     $(window).resize(function () {
-        setSkinListHeightAndScroll(false);
-        setSettingListHeightAndScroll(false);
+        setSkinListHeightAndScroll();
+        setSettingListHeightAndScroll();
     });
+    demoInit();
 });
+
+function demoInit(){
+    $('.nav-system li').on('click',function(){
+        var $this = $(this);
+        var $ul = $('.nav-system');
+        $ul.find('li').removeClass('nav-system-selected');
+        $this.addClass('nav-system-selected');
+    });
+}
 
 //Skin changer
 function skinChanger() {
@@ -26,19 +36,17 @@ function skinChanger() {
 }
 
 //Skin tab content set height and show scroll
-function setSkinListHeightAndScroll(isFirstTime) {
+function setSkinListHeightAndScroll() {
     var height = $(window).height() - ($('.navbar').innerHeight() + $('.right-sidebar .nav-tabs').outerHeight());
     var $el = $('.demo-choose-skin');
 
-    if (!isFirstTime){
-      $el.slimScroll({ destroy: true }).height('auto');
-      $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
-    }
+    $el.slimScroll({ destroy: true }).height('auto');
+    $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
 
     $el.slimscroll({
         height: height + 'px',
         color: 'rgba(0,0,0,0.5)',
-        size: '6px',
+        size: '4px',
         alwaysVisible: false,
         borderRadius: '0',
         railBorderRadius: '0'
@@ -46,19 +54,17 @@ function setSkinListHeightAndScroll(isFirstTime) {
 }
 
 //Setting tab content set height and show scroll
-function setSettingListHeightAndScroll(isFirstTime) {
+function setSettingListHeightAndScroll() {
     var height = $(window).height() - ($('.navbar').innerHeight() + $('.right-sidebar .nav-tabs').outerHeight());
     var $el = $('.right-sidebar .demo-settings');
 
-    if (!isFirstTime){
-      $el.slimScroll({ destroy: true }).height('auto');
-      $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
-    }
+    $el.slimScroll({ destroy: true }).height('auto');
+    $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
 
     $el.slimscroll({
         height: height + 'px',
         color: 'rgba(0,0,0,0.5)',
-        size: '6px',
+        size: '4px',
         alwaysVisible: false,
         borderRadius: '0',
         railBorderRadius: '0'

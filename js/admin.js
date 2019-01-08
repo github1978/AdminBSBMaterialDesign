@@ -32,9 +32,7 @@ $.AdminBSB.options = {
         scrollWidth: '4px',
         scrollAlwaysVisible: false,
         scrollBorderRadius: '0',
-        scrollRailBorderRadius: '0',
-        scrollActiveItemWhenPageLoad: true,
-        breakpointWidth: 1170
+        scrollRailBorderRadius: '0'
     },
     dropdownMenu: {
         effectIn: 'fadeIn',
@@ -44,7 +42,7 @@ $.AdminBSB.options = {
 
 /* Left Sidebar - Function =================================================================================================
 *  You can manage the left sidebar menu options
-*  
+*
 */
 $.AdminBSB.leftSideBar = {
     activate: function () {
@@ -96,28 +94,25 @@ $.AdminBSB.leftSideBar = {
         });
 
         //Set menu height
-        _this.setMenuHeight(true);
-        _this.checkStatusForResize(true);
+        _this.setMenuHeight();
+        _this.checkStatuForResize(true);
         $(window).resize(function () {
-            _this.setMenuHeight(false);
-            _this.checkStatusForResize(false);
+            _this.setMenuHeight();
+            _this.checkStatuForResize(false);
         });
 
         //Set Waves
         Waves.attach('.menu .list a', ['waves-block']);
         Waves.init();
     },
-    setMenuHeight: function (isFirstTime) {
+    setMenuHeight: function () {
         if (typeof $.fn.slimScroll != 'undefined') {
             var configs = $.AdminBSB.options.leftSideBar;
             var height = ($(window).height() - ($('.legal').outerHeight() + $('.user-info').outerHeight() + $('.navbar').innerHeight()));
             var $el = $('.list');
 
-            if (!isFirstTime) {
-                $el.slimscroll({
-                    destroy: true
-                });
-            }
+            $el.slimScroll({ destroy: true }).height("auto");
+            $el.parent().find('.slimScrollBar, .slimScrollRail').remove();
 
             $el.slimscroll({
                 height: height + "px",
@@ -127,18 +122,9 @@ $.AdminBSB.leftSideBar = {
                 borderRadius: configs.scrollBorderRadius,
                 railBorderRadius: configs.scrollRailBorderRadius
             });
-
-            //Scroll active menu item when page load, if option set = true
-            if ($.AdminBSB.options.leftSideBar.scrollActiveItemWhenPageLoad) {
-                var item = $('.menu .list li.active')[0];
-                if (item) {
-                    var activeItemOffsetTop = item.offsetTop;
-                    if (activeItemOffsetTop > 150) $el.slimscroll({ scrollTo: activeItemOffsetTop + 'px' });
-                }
-            }
         }
     },
-    checkStatusForResize: function (firstTime) {
+    checkStatuForResize: function (firstTime) {
         var $body = $('body');
         var $openCloseBar = $('.navbar .navbar-header .bars');
         var width = $body.width();
@@ -149,7 +135,7 @@ $.AdminBSB.leftSideBar = {
             });
         }
 
-        if (width < $.AdminBSB.options.leftSideBar.breakpointWidth) {
+        if (width < 1170) {
             $body.addClass('ls-closed');
             $openCloseBar.fadeIn();
         }
@@ -166,7 +152,7 @@ $.AdminBSB.leftSideBar = {
 
 /* Right Sidebar - Function ================================================================================================
 *  You can manage the right sidebar menu options
-*  
+*
 */
 $.AdminBSB.rightSideBar = {
     activate: function () {
@@ -198,7 +184,7 @@ $.AdminBSB.rightSideBar = {
 
 /* Searchbar - Function ================================================================================================
 *  You can manage the search bar
-*  
+*
 */
 var $searchBar = $('.search-bar');
 $.AdminBSB.search = {
@@ -235,7 +221,7 @@ $.AdminBSB.search = {
 
 /* Navbar - Function =======================================================================================================
 *  You can manage the navbar
-*  
+*
 */
 $.AdminBSB.navbar = {
     activate: function () {
@@ -265,19 +251,17 @@ $.AdminBSB.navbar = {
 
 /* Input - Function ========================================================================================================
 *  You can manage the inputs(also textareas) with name of class 'form-control'
-*  
+*
 */
 $.AdminBSB.input = {
-    activate: function ($parentSelector) {
-        $parentSelector = $parentSelector || $('body');
-
+    activate: function () {
         //On focus event
-        $parentSelector.find('.form-control').focus(function () {
-            $(this).closest('.form-line').addClass('focused');
+        $('.form-control').focus(function () {
+            $(this).parent().addClass('focused');
         });
 
         //On focusout event
-        $parentSelector.find('.form-control').focusout(function () {
+        $('.form-control').focusout(function () {
             var $this = $(this);
             if ($this.parents('.form-group').hasClass('form-float')) {
                 if ($this.val() == '') { $this.parents('.form-line').removeClass('focused'); }
@@ -288,15 +272,8 @@ $.AdminBSB.input = {
         });
 
         //On label click
-        $parentSelector.on('click', '.form-float .form-line .form-label', function () {
+        $('body').on('click', '.form-float .form-line .form-label', function () {
             $(this).parent().find('input').focus();
-        });
-
-        //Not blank form
-        $parentSelector.find('.form-control').each(function () {
-            if ($(this).val() !== '') {
-                $(this).parents('.form-line').addClass('focused');
-            }
         });
     }
 }
@@ -304,7 +281,7 @@ $.AdminBSB.input = {
 
 /* Form - Select - Function ================================================================================================
 *  You can manage the 'select' of form elements
-*  
+*
 */
 $.AdminBSB.select = {
     activate: function () {
@@ -315,7 +292,7 @@ $.AdminBSB.select = {
 
 /* DropdownMenu - Function =================================================================================================
 *  You can manage the dropdown menu
-*  
+*
 */
 
 $.AdminBSB.dropdownMenu = {
@@ -393,7 +370,7 @@ $.AdminBSB.dropdownMenu = {
 
 /* Browser - Function ======================================================================================================
 *  You can manage browser
-*  
+*
 */
 var edge = 'Microsoft Edge';
 var ie10 = 'Internet Explorer 10';
