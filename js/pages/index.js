@@ -35,8 +35,8 @@ function initRealTimeChart() {
             max: 100
         },
         xaxis: {
-            min: 0,
-            max: 100
+            min: 1,
+            max: 12,
         }
     });
 
@@ -44,12 +44,12 @@ function initRealTimeChart() {
         plot.setData([getRandomData()]);
         plot.draw();
 
-        var timeout;
-        if (realtime === 'on') {
-            timeout = setTimeout(updateRealTime, 320);
-        } else {
-            clearTimeout(timeout);
-        }
+        // var timeout;
+        // if (realtime === 'on') {
+        //     timeout = setTimeout(updateRealTime, 320);
+        // } else {
+        //     clearTimeout(timeout);
+        // }
     }
 
     updateRealTime();
