@@ -91,6 +91,15 @@
   padding-right:2px !important;
 }
 
+.dashboard-stat-list{
+  margin-top:3px!important;
+}
+
+.dashboard-stat-list a{
+  text-decoration:none; 
+}
+
+
 .sidebar .user-info >   div{
   float:left;
 }
