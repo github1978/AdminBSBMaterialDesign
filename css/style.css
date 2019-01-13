@@ -74,7 +74,7 @@
   padding-top:15px !important;
   padding-bottom:25px !important;
   margin-top:10px !important;
-  font-size:14px;
+  font-size:18px;
   font-family: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -91,8 +91,63 @@
   padding-right:2px !important;
 }
 
+.calendar_cell {
+  padding:10px;
+}
+
+#calendar_b{
+  float: left;
+  background-color: #fff;
+}
+
+#calendar_info_list{
+  font-size:16px;
+  background-color: #009688;
+  color:#fff;
+}
+
+#calendar_info_list li{
+  font-size:16px;
+  padding-top:5px;
+}
+
+#calendar_info_list ul{
+  padding:10px;
+  padding-left:60%;
+}
+
+.date_info{
+  padding:10px;
+  padding-left:60%;
+}
+
+.date{
+  padding-right:5px;
+  font-size:18px;
+}
+
+.week{
+  padding-left:5px;
+  padding-right:5px;
+}
+
+.info_title{
+  padding:10px;
+  padding-left:60%;
+  background-color: #26A69A;
+  font-size:18px;
+}
+
+#notice_list {
+  font-size: 16px;
+}
+
 .dashboard-stat-list{
-  margin-top:3px!important;
+  margin-top:0px!important;
+}
+
+.dashboard-stat-list ul{
+  margin-bottom: 0px!important;
 }
 
 .dashboard-stat-list a{

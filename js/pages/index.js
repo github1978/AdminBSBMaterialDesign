@@ -10,7 +10,7 @@
     });
 
     initRealTimeChart();
-    initDonutChart();
+    //initDonutChart();
     initSparkline();
 });
 
@@ -21,6 +21,75 @@ function initRealTimeChart() {
         series: {
             shadowSize: 0,
             color: 'rgb(0, 188, 212)'
+        },
+        grid: {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor: '#f3f3f3'
+        },
+        lines: {
+            fill: true
+        },
+        yaxis: {
+            min: 0,
+            max: 100
+        },
+        xaxis: {
+            min: 1,
+            max: 12,
+        }
+    });
+
+    var plot = $.plot('#chart_1', [getRandomData()], {
+        series: {
+            shadowSize: 0,
+            color: 'rgb(0, 188, 312)'
+        },
+        grid: {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor: '#f3f3f3'
+        },
+        lines: {
+            fill: true
+        },
+        yaxis: {
+            min: 0,
+            max: 100
+        },
+        xaxis: {
+            min: 1,
+            max: 12,
+        }
+    });
+
+    var plot = $.plot('#chart_2', [getRandomData()], {
+        series: {
+            shadowSize: 0,
+            color: 'rgb(120, 188, 312)'
+        },
+        grid: {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor: '#f3f3f3'
+        },
+        lines: {
+            fill: true
+        },
+        yaxis: {
+            min: 0,
+            max: 100
+        },
+        xaxis: {
+            min: 1,
+            max: 12,
+        }
+    });
+
+    var plot = $.plot('#chart_3', [getRandomData()], {
+        series: {
+            shadowSize: 0,
+            color: 'rgb(90, 128, 112)'
         },
         grid: {
             borderColor: '#f3f3f3',
@@ -97,6 +166,24 @@ function initDonutChart() {
 
 var data = [], totalPoints = 110;
 function getRandomData() {
+    if (data.length > 0) data = data.slice(1);
+
+    while (data.length < totalPoints) {
+        var prev = data.length > 0 ? data[data.length - 1] : 50, y = prev + Math.random() * 10 - 5;
+        if (y < 0) { y = 0; } else if (y > 100) { y = 100; }
+
+        data.push(y);
+    }
+
+    var res = [];
+    for (var i = 0; i < data.length; ++i) {
+        res.push([i, data[i]]);
+    }
+
+    return res;
+}
+
+function getRandomDataForMoney(){
     if (data.length > 0) data = data.slice(1);
 
     while (data.length < totalPoints) {

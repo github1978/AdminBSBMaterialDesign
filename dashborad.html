@@ -28,6 +28,8 @@
     <!-- Morris Chart Css-->
     <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
 
+    <link href="plugins/calendar/css/calendar.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -334,8 +336,32 @@
                         <div class="header">
                             <h2>日程安排</h2>
                         </div>
-                        <div class="body">
-                           
+                        <div class="body" style="padding:0;">
+                           <div id="calendar_b"></div>
+                           <div id="calendar_info_list">
+                                <div class="date_info">
+                                    <span class="date">2019年1月13日</span>
+                                    <span class="week">星期日</span>
+                                    <span>农历腊月初八</span>
+                                </div>
+                                <div class="zb_info">
+                                    <div class="info_title">今日值班人员</div>
+                                    <ul>
+                                        <li>张三 13429102112</li>
+                                        <li>张三 13429102112</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div class="info_title">运维保障接口人</div>
+                                    <ul>
+                                        <li>应用组：赵四 | 18529123122 | 575923912@qq.com </li>
+                                        <li>网络组：王五 | 18529123122 | 575923912@qq.com </li>
+                                        <li>主机组：赵四 | 18529123122 | 575923912@qq.com </li>
+                                        <li>机房管理员：赵四 | 18529123122 | 575923912@qq.com </li>
+                                        <li>电e宝开发组：赵四 | 18529123122 | 575923912@qq.com </li>
+                                    </ul>
+                                </div>
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -344,38 +370,66 @@
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="header">
-                            <h2>公告列表</h2>
+                            <h2>公告</h2>
                         </div>
-                        <div class="body">
+                        <div class="body" style="overflow-y: auto;height:535px;">
                             <ul class="dashboard-stat-list" id="notice_list">
                                 <li>
                                     <a href="#">两票及检修申请制度更改，模板更新。</a>
-                                    <span class="pull-right"><small>2019-01-06</small></span>
+                                    <span class="pull-right">2019-01-06</span>
                                 </li>
                                 <li>
                                     <a href="#">两票及检修申请制度更改，模板更新。</a>
-                                    <span class="pull-right"><small>2019-01-06</small></span>
+                                    <span class="pull-right">2019-01-06</span>
                                 </li>
                                 <li>
                                     <a href="#">两票及检修申请制度更改，模板更新。</a>
-                                    <span class="pull-right"><small>2019-01-06</small></span>
+                                    <span class="pull-right">2019-01-06</span>
                                 </li>
                                 <li>
                                     <a href="#">两票及检修申请制度更改，模板更新。</a>
-                                    <span class="pull-right"><small>2019-01-06</small></span>
+                                    <span class="pull-right">2019-01-06</span>
                                 </li>
                                 <li>
                                     <a href="#">两票及检修申请制度更改，模板更新。</a>
-                                    <span class="pull-right"><small>2019-01-06</small></span>
+                                    <span class="pull-right">2019-01-06</span>
                                 </li>
                                 <li>
                                     <a href="#">两票及检修申请制度更改，模板更新。</a>
-                                    <span class="pull-right"><small>2019-01-06</small></span>
+                                    <span class="pull-right">2019-01-06</span>
                                 </li>
                                 <li>
                                     <a href="#">两票及检修申请制度更改，模板更新。</a>
-                                    <span class="pull-right"><small>2019-01-06</small></span>
+                                    <span class="pull-right">2019-01-06</span>
                                 </li>
+                                <li>
+                                        <a href="#">两票及检修申请制度更改，模板更新。</a>
+                                        <span class="pull-right">2019-01-06</span>
+                                    </li>
+                                    <li>
+                                            <a href="#">两票及检修申请制度更改，模板更新。</a>
+                                            <span class="pull-right">2019-01-06</span>
+                                        </li>
+                                        <li>
+                                                <a href="#">两票及检修申请制度更改，模板更新。</a>
+                                                <span class="pull-right">2019-01-06</span>
+                                            </li>
+                                            <li>
+                                                    <a href="#">两票及检修申请制度更改，模板更新。</a>
+                                                    <span class="pull-right">2019-01-06</span>
+                                                </li>
+                                                <li>
+                                                        <a href="#">两票及检修申请制度更改，模板更新。</a>
+                                                        <span class="pull-right">2019-01-06</span>
+                                                    </li>       
+                                                    <li>
+                                                            <a href="#">两票及检修申请制度更改，模板更新。</a>
+                                                            <span class="pull-right">2019-01-06</span>
+                                                        </li> 
+                                                        <li>
+                                                                <a href="#">两票及检修申请制度更改，模板更新。</a>
+                                                                <span class="pull-right">2019-01-06</span>
+                                                            </li>                         
                             </ul>
                         </div>
                     </div>
@@ -505,15 +559,15 @@
             <!-- #END# CPU Usage -->
             <div class="row clearfix">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="info-box-4 hover-expand-effect">
+                    <div class="info-box-4 hover-expand-effect" style="height:200px!important;">
                         <div class="icon">
                             <i class="material-icons col-teal">equalizer</i>
                         </div>
-                        <div class="content">
-                            <div class="text">国网商旅</div>
-                            <div class="number">75</div>
+                        <div class="content" style="width:200px">
+                            <div class="text" style="font-size:24px;">国网商旅</div>
+                            <div class="number" style="font-size:86px;">75</div>
                         </div>
-                        <canvas id="radar_chart" height="150"></canvas>
+                        <canvas id="e_radar_1" height="200px" style="margin-top:10px"></canvas>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -630,13 +684,13 @@
     <!-- Jquery CountTo Plugin Js -->
     <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
-    <!-- Morris Plugin Js -->
+    <!-- Morris Plugin Js
     <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/morrisjs/morris.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script> -->
 
-    <!-- ChartJs -->
+    <!-- ChartJs
     <script src="plugins/chartjs/Chart.bundle.js"></script>
-    <script src="js/pages/charts/chartjs.js"></script>
+    <script src="js/pages/charts/chartjs.js"></script> -->
 
     <!-- Flot Charts Plugin Js -->
     <script src="plugins/flot-charts/jquery.flot.js"></script>
@@ -648,9 +702,15 @@
     <!-- Sparkline Chart Plugin Js -->
     <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
+    <script src="plugins/echartjs/echarts.min.js"></script>
+
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/index.js"></script>
+    <script src="plugins/calendar/js/underscore-min.js"></script>
+    <script src="plugins/calendar/js/language/zh-CN.js"></script>
+    <script src="plugins/calendar/js/calendar.js"></script>
+
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
